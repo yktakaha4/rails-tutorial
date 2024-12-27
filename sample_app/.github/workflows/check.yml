@@ -1,0 +1,22 @@
+name: Rails Test
+
+on:
+    push:
+
+jobs:
+    test:
+        runs-on: ubuntu-22.04
+        defaults:
+            run:
+                working-directory: sample_app
+        steps:
+        - uses: actions/checkout@v4
+
+        - uses: ruby/setup-ruby@v1
+          with:
+            ruby-version: 3.2
+            bundler-cache: true
+
+        - run: ./bin/build.sh
+
+        - run: rails test -v
