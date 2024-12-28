@@ -15,6 +15,8 @@ users = [
     password: password,
     password_confirmation: password,
     admin: true,
+    activated: true,
+    activated_at: Time.zone.now,
   },
 ]
 
@@ -24,6 +26,8 @@ users = [
     email: "example-#{n+1}@railstutorial.jp",
     password: password,
     password_confirmation: password,
+    activated: true,
+    activated_at: Time.zone.now,
   }
 end
 
