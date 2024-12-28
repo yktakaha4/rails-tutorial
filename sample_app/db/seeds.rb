@@ -14,13 +14,14 @@ users = [
     email: "example@railstutorial.jp",
     password: password,
     password_confirmation: password,
+    admin: true,
   },
 ]
 
-99.times do
+99.times do |n|
   users << {
     name: Faker::Name.name,
-    email: Faker::Internet.email,
+    email: "example-#{n+1}@railstutorial.jp",
     password: password,
     password_confirmation: password,
   }
