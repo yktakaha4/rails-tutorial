@@ -36,5 +36,13 @@ users.each.with_index do |user, i|
   User.create!(user)
   print "."
 end
-puts ""
+puts "Done!"
+
+print "Creating microposts"
+users = User.order(:created_at).take(6)
+50.times do
+  content = Faker::Lorem.sentence(word_count: 5)
+  users.each { |user| user.microposts.create!(content: content) }
+  print "."
+end
 puts "Done!"
