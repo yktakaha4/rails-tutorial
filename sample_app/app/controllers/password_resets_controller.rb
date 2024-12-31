@@ -24,7 +24,7 @@ class PasswordResetsController < ApplicationController
 
   def update
     if params[:user][:password].empty?
-      @users.errors.add(:password, "can't be empty")
+      @user.errors.add(:password, "can't be empty")
       render 'edit', status: :unprocessable_entity
     elsif @user.update(user_params)
       reset_session
