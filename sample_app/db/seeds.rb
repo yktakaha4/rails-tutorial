@@ -46,3 +46,22 @@ users = User.order(:created_at).take(6)
   print "."
 end
 puts "Done!"
+
+users = User.all
+user = users.first
+following = users[2..50]
+followers = users[3..40]
+
+print "Creating following"
+following.each do |followed|
+  user.follow(followed)
+  print "."
+end
+puts "Done!"
+
+print "Creating followers"
+followers.each do |follower|
+  follower.follow(user)
+  print "."
+end
+puts "Done!"
